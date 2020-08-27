@@ -5,4 +5,4 @@
     android:id="@+id/constraint_layout_fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.activity.SingleFragmentActivity" />
+    tools:context=".controller.activity.WordsActivity" />

@@ -2,11 +2,25 @@
     <string name="app_name">DictionaryApp</string>
 
 
-    <string name="choose_language">Please choose your language</string>
+    <!--<string name="choose_language">Please choose your language</string>
     <string name="button_english">English</string>
-    <string name="button_persian">فارسی</string>
+    <string name="button_persian">فارسی</string>-->
 
+    <string name="text_view_word_english">English</string>
+    <string name="text_view_word_persian">فارسي</string>
+    <string name="text_view_word_arabic">arabic</string>
+    <string name="text_view_word_french">french</string>
+
+
+    <string name="button_add">Add</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="word_share_subject">translation of word</string>
+
+    <string name="menu_arrow_back">back</string>
+    <string name="menu_edit_word">edit</string>
+    <string name="menu_delete_word">delete</string>
+    <string name="menu_share">share</string>
 
 </resources>

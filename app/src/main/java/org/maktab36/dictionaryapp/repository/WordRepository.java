@@ -35,7 +35,8 @@ public class WordRepository {
 
     public List<Word> getWords() {
         List<Word> words = new ArrayList<>();
-        WordCursorWrapper wordCursorWrapper = queryWords(null, null);
+        String orderBy=WordTable.COLS.ENGLISH+" DESC";
+        WordCursorWrapper wordCursorWrapper = queryWords(null, null,orderBy);
         try {
             wordCursorWrapper.moveToFirst();
             while (!wordCursorWrapper.isAfterLast()) {
@@ -52,7 +53,7 @@ public class WordRepository {
     public Word get(UUID uuid) {
         String selection= WordTable.COLS.UUID + "=?";
         String[] selectionArgs= new String[]{uuid.toString()};;
-        WordCursorWrapper wordCursorWrapper = queryWords(selection, selectionArgs);
+        WordCursorWrapper wordCursorWrapper = queryWords(selection, selectionArgs,null);
         try {
             wordCursorWrapper.moveToFirst();
             return wordCursorWrapper.getWord();
@@ -154,7 +155,7 @@ public class WordRepository {
     }
 
     public int getNumberOfWords() {
-        WordCursorWrapper wordCursorWrapper = queryWords(null, null);
+        WordCursorWrapper wordCursorWrapper = queryWords(null, null,null);
         try {
             wordCursorWrapper.moveToFirst();
             return wordCursorWrapper.getCount();
@@ -163,14 +164,14 @@ public class WordRepository {
         }
     }
 
-    private WordCursorWrapper queryWords(String selection, String[] selectionArgs) {
+    private WordCursorWrapper queryWords(String selection, String[] selectionArgs,String orderBy) {
         Cursor cursor = mDatabase.query(WordTable.NAME,
                 null,
                 selection,
                 selectionArgs,
                 null,
                 null,
-                null);
+                orderBy);
 
         return new WordCursorWrapper(cursor);
     }

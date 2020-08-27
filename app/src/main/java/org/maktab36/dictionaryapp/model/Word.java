@@ -1,5 +1,6 @@
 package org.maktab36.dictionaryapp.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 public class Word {
@@ -51,6 +52,14 @@ public class Word {
 
     public Word() {
         this(UUID.randomUUID(),null,null,null,null);
+    }
+
+    public Word(String english, String persian) {
+        this(UUID.randomUUID(),english,persian,null,null);
+    }
+
+    public Word(String english, String persian, String arabic, String french) {
+        this(UUID.randomUUID(),english,persian,arabic,french);
     }
 
     public Word(UUID id, String english, String persian, String arabic, String french) {
